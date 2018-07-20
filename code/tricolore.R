@@ -8,6 +8,14 @@
 
 # Init --------------------------------------------------------------------
 
+# must revert to older versions due to broken compatability of ggtern with
+# ggplot 3.0.0
+# install.packages("devtools")
+# devtools::install_version("ggplot2", version = "2.2.1", repos = "http://cran.us.
+# r-project.org")
+# devtools::install_version("ggtern", version = "2.2.1", repos = "http://cran.us.r
+# -project.org")
+
 library(tidyverse)
 library(ggtern)
 
