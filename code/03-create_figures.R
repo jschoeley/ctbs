@@ -58,19 +58,19 @@ gghole <- function (fort) {
 
 # Compositional Data Analysis ---------------------------------------------
 
-# Geometric Mean
-#
-# Calculate the geometric mean for a numeric vector.
-#
-# @param x Numeric vector.
-# @param na.rm Should NAs be removed? (default=TRUE)
-# @param zero.rm Should zeros be removed? (default=TRUE)
-#
-# @return The geometric mean as numeric scalar.
-#
-# @examples
-# GeometricMean(0:100)
-# GeometricMean(0:100, zero.rm = FALSE)
+#' Geometric Mean
+#'
+#' Calculate the geometric mean for a numeric vector.
+#'
+#' @param x Numeric vector.
+#' @param na.rm Should NAs be removed? (default=TRUE)
+#' @param zero.rm Should zeros be removed? (default=TRUE)
+#'
+#' @return The geometric mean as numeric scalar.
+#'
+#' @examples
+#' GeometricMean(0:100)
+#' GeometricMean(0:100, zero.rm = FALSE)
 GeometricMean <- function (x, na.rm = TRUE, zero.rm = TRUE) {
   # the geometric mean can't really deal with elements equal to 0
   # this option removes 0 elements from the vector
@@ -78,29 +78,29 @@ GeometricMean <- function (x, na.rm = TRUE, zero.rm = TRUE) {
   return(exp(mean(log(x), na.rm = na.rm)))
 }
 
-# Compositional Centre
-#
-# Calculate the centre of a compositional data set.
-#
-# @param P n by m matrix of compositions
-#          {p1, ..., pm}_i for i=1,...,n.
-#
-# @return The centre of P as an m element numeric vector.
-#
-# @examples
-# P <- prop.table(matrix(runif(300), 100), margin = 1)
-# Centre(P)
-#
-# @references
-# Von Eynatten, H., Pawlowsky-Glahn, V., & Egozcue, J. J. (2002).
-# Understanding perturbation on the simplex: A simple method to
-# better visualize and interpret compositional data in ternary
-# diagrams. Mathematical Geology, 34(3), 249-257.
-#
-# Pawlowsky-Glahn, V., Egozcue, J. J., & Tolosana-Delgado, R.
-# (2007). Lecture Notes on Compositional Data Analysis.
-# Retrieved from
-# https://dugi-doc.udg.edu/bitstream/handle/10256/297/CoDa-book.pdf
+#' Compositional Centre
+#'
+#' Calculate the centre of a compositional data set.
+#'
+#' @param P n by m matrix of compositions
+#'          {p1, ..., pm}_i for i=1,...,n.
+#'
+#' @return The centre of P as an m element numeric vector.
+#'
+#' @examples
+#' P <- prop.table(matrix(runif(300), 100), margin = 1)
+#' Centre(P)
+#'
+#' @references
+#' Von Eynatten, H., Pawlowsky-Glahn, V., & Egozcue, J. J. (2002).
+#' Understanding perturbation on the simplex: A simple method to
+#' better visualize and interpret compositional data in ternary
+#' diagrams. Mathematical Geology, 34(3), 249-257.
+#'
+#' Pawlowsky-Glahn, V., Egozcue, J. J., & Tolosana-Delgado, R.
+#' (2007). Lecture Notes on Compositional Data Analysis.
+#' Retrieved from
+#' https://dugi-doc.udg.edu/bitstream/handle/10256/297/CoDa-book.pdf
 Centre <- function (P) {
   # calculate the geometric mean for each element
   # of the composition
@@ -110,31 +110,31 @@ Centre <- function (P) {
   return(g/sum(g))
 }
 
-# Compositional Perturbation
-#
-# Perturbate a compositional data set by a compositional vector.
-#
-# @param P n by m matrix of compositions
-#         {p1, ..., pm}_i for i=1,...,n.
-# @param c Compositional perturbation vector {c1, ..., cm}.
-#
-# @return n by m matrix of perturbed compositions.
-#
-# @examples
-# P <- prop.table(matrix(runif(12), 4), margin = 1)
-# cP <- Perturbate(P, 1/Centre(P))
-# Perturbate(cP, Centre(P)) - P
-#
-# @references
-# Von Eynatten, H., Pawlowsky-Glahn, V., & Egozcue, J. J. (2002).
-# Understanding perturbation on the simplex: A simple method to
-# better visualize and interpret compositional data in ternary
-# diagrams. Mathematical Geology, 34(3), 249-257.
-#
-# Pawlowsky-Glahn, V., Egozcue, J. J., & Tolosana-Delgado, R.
-# (2007). Lecture Notes on Compositional Data Analysis.
-# Retrieved from
-# https://dugi-doc.udg.edu/bitstream/handle/10256/297/CoDa-book.pdf
+#' Compositional Perturbation
+#'
+#' Perturbate a compositional data set by a compositional vector.
+#'
+#' @param P n by m matrix of compositions
+#'         {p1, ..., pm}_i for i=1,...,n.
+#' @param c Compositional perturbation vector {c1, ..., cm}.
+#'
+#' @return n by m matrix of perturbed compositions.
+#'
+#' @examples
+#' P <- prop.table(matrix(runif(12), 4), margin = 1)
+#' cP <- Perturbate(P, 1/Centre(P))
+#' Perturbate(cP, Centre(P)) - P
+#'
+#' @references
+#' Von Eynatten, H., Pawlowsky-Glahn, V., & Egozcue, J. J. (2002).
+#' Understanding perturbation on the simplex: A simple method to
+#' better visualize and interpret compositional data in ternary
+#' diagrams. Mathematical Geology, 34(3), 249-257.
+#'
+#' Pawlowsky-Glahn, V., Egozcue, J. J., & Tolosana-Delgado, R.
+#' (2007). Lecture Notes on Compositional Data Analysis.
+#' Retrieved from
+#' https://dugi-doc.udg.edu/bitstream/handle/10256/297/CoDa-book.pdf
 Perturbate <- function (P, c = rep(1/3, 3)) {
   return(prop.table(t(t(P)*c), margin = 1))
 }
@@ -159,18 +159,6 @@ InvAlrTransform <- function (P) {
   prop.table(X, margin = 1)
 }
 
-# Perturbate <- function (P, C) {
-#   prop.table(P*C, margin = 1)
-# }
-#
-# a <- prop.table(matrix(runif(12), 4), margin = 1)
-# b <- prop.table(matrix(runif(12), 4), margin = 1)
-#
-# all(abs(
-#   InvAlrTransform(AlrTransform(a)-AlrTransform(b)) -
-#     Perturbate(a, 1/b)
-# ) < 1e-10)
-
 # Ternary Geometry --------------------------------------------------------
 
 # T(K=k^2):   Equilateral triangle subdivided into K equilateral
@@ -185,25 +173,25 @@ InvAlrTransform <- function (P) {
 #                /____\         1 2 3 4 5
 #              p1      p3
 
-# Centroid Coordinates of Sub-Triangles in Segmented Equilateral Triangle
-#
-# Segment an equilateral triangle into k^2 equilateral
-# sub-triangles and return the barycentric centroid
-# coordinates of each sub-triangle.
-#
-# @param k Number of rows in the segmented equilateral triangle.
-#
-# @return A matrix of barycentric centroid coordinates of regions
-#         id=1,...,k^2.
-#
-# @references
-# S. H. Derakhshan and C. V. Deutsch (2009): A Color Scale for
-# Ternary Mixtures.
-#
-# @examples
-# TernaryMeshCentroids(1)
-# TernaryMeshCentroids(2)
-# TernaryMeshCentroids(3)
+#' Centroid Coordinates of Sub-Triangles in Segmented Equilateral Triangle
+#'
+#' Segment an equilateral triangle into k^2 equilateral
+#' sub-triangles and return the barycentric centroid
+#' coordinates of each sub-triangle.
+#'
+#' @param k Number of rows in the segmented equilateral triangle.
+#'
+#' @return A matrix of barycentric centroid coordinates of regions
+#'         id=1,...,k^2.
+#'
+#' @references
+#' S. H. Derakhshan and C. V. Deutsch (2009): A Color Scale for
+#' Ternary Mixtures.
+#'
+#' @examples
+#' TernaryMeshCentroids(1)
+#' TernaryMeshCentroids(2)
+#' TernaryMeshCentroids(3)
 TernaryMeshCentroids <- function (k) {
   # total number of centroids and centroid id
   K = k^2; id = 1:K
@@ -217,27 +205,27 @@ TernaryMeshCentroids <- function (k) {
   return(cbind(id = id, p1 = c1, p2 = c2, p3 = c3))
 }
 
-# Vertex Coordinates of Sub-Triangles in Segmented Equilateral Triangle
-#
-# Given the barycentric centroid coordinates of the sub-triangles in
-# an equilateral triangle subdivided into k^2 equilateral
-# sub-triangles, return the barycentric vertex coordinates of each
-# sub-triangle.
-#
-# @param C n by 4 matrix of barycentric centroid coordinates of
-#          n=k^2 sub-triangles. Column order: id, p1, p2, p3 with
-#          id=1,...,k^2.
-#
-# @return Index, vertex id and barycentric vertex coordinates for
-#         each of the k^2 sub-triangles.
-#
-# @examples
-# k = 2
-# C <- TernaryMeshCentroids(k)
-# TernaryMeshVertices(C)
-#
-# @references
-# S. H. Derakhshan and C. V. Deutsch (2009): A Color Scale for Ternary Mixtures.
+#' Vertex Coordinates of Sub-Triangles in Segmented Equilateral Triangle
+#'
+#' Given the barycentric centroid coordinates of the sub-triangles in
+#' an equilateral triangle subdivided into k^2 equilateral
+#' sub-triangles, return the barycentric vertex coordinates of each
+#' sub-triangle.
+#'
+#' @param C n by 4 matrix of barycentric centroid coordinates of
+#'          n=k^2 sub-triangles. Column order: id, p1, p2, p3 with
+#'          id=1,...,k^2.
+#'
+#' @return Index, vertex id and barycentric vertex coordinates for
+#'         each of the k^2 sub-triangles.
+#'
+#' @examples
+#' k = 2
+#' C <- TernaryMeshCentroids(k)
+#' TernaryMeshVertices(C)
+#'
+#' @references
+#' S. H. Derakhshan and C. V. Deutsch (2009): A Color Scale for Ternary Mixtures.
 TernaryMeshVertices <- function (C) {
   k <- sqrt(nrow(C))
   j <- k - floor(sqrt(k^2-C[,1]))
@@ -255,14 +243,14 @@ TernaryMeshVertices <- function (C) {
   return(V)
 }
 
-# Coordinates and Labels for a Centered Ternary Diagram Grid
-#
-# @param center
-#   Composition that is to be shifted to the center.
-# @param N
-#   Number of grid lines to draw.
-# @param relative_grid
-#   Draw regularly spaced grid-lines relative to center?
+#' Coordinates and Labels for a Centered Ternary Diagram Grid
+#'
+#' @param center
+#'   Composition that is to be shifted to the center.
+#' @param N
+#'   Number of grid lines to draw.
+#' @param relative_grid
+#'   Draw regularly spaced grid-lines relative to center?
 TernaryGridCentered <- function (center, N = 10, relative_grid = TRUE) {
 
   # regularly spaced grid-lines relative to center
@@ -367,29 +355,29 @@ TernaryGridCentered <- function (center, N = 10, relative_grid = TRUE) {
 
 # Ternary Color Scale -----------------------------------------------------
 
-# RGB Mixture of Ternary Composition
-#
-# Return the ternary balance scheme colors for a matrix of
-# ternary compositions.
-#
-# @param P n by 3 matrix of ternary compositions {p1, p2, p3}_i
-#            for i=1, ..., n.
-# @param h_ Primary hue of the first ternary element in angular
-#           degrees [0, 360].
-# @param c_ Maximum possible chroma of mixed colors [0, 200].
-# @param l_ Lightness of mixed colors [0, 100].
-# @param contrast Lightness contrast of the color scale [0, 1).
-# @param center Ternary coordinates of the grey-point.
-#
-# @return An n row data frame giving, for each row of the input P,
-#         the input proportions (p1, p2, p3), parameters of the
-#         color mixture (h, c, l) and the hexsrgb string of the mixed
-#         colors.
-#
-# @examples
-# P <- prop.table(matrix(runif(9), ncol = 3), 1)
-# ColorMap(P, h_ = 80, c_ = 170, l_ = 80,
-#          contrast = 0.6, center = rep(1/3, 3))
+#' RGB Mixture of Ternary Composition
+#'
+#' Return the ternary balance scheme colors for a matrix of
+#' ternary compositions.
+#'
+#' @param P n by 3 matrix of ternary compositions {p1, p2, p3}_i
+#'            for i=1, ..., n.
+#' @param h_ Primary hue of the first ternary element in angular
+#'           degrees [0, 360].
+#' @param c_ Maximum possible chroma of mixed colors [0, 200].
+#' @param l_ Lightness of mixed colors [0, 100].
+#' @param contrast Lightness contrast of the color scale [0, 1).
+#' @param center Ternary coordinates of the grey-point.
+#'
+#' @return An n row data frame giving, for each row of the input P,
+#'         the input proportions (p1, p2, p3), parameters of the
+#'         color mixture (h, c, l) and the hexsrgb string of the mixed
+#'         colors.
+#'
+#' @examples
+#' P <- prop.table(matrix(runif(9), ncol = 3), 1)
+#' ColorMap(P, h_ = 80, c_ = 170, l_ = 80,
+#'          contrast = 0.6, center = rep(1/3, 3))
 ColorMap <- function (P, h_, c_, l_, contrast, center) {
 
   # generate primary colors starting with a hue value in [0, 360) and then

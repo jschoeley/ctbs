@@ -54,7 +54,7 @@ euro_education <-
 # Download Euro data on labor-force composition ---------------------------
 
 # download data on labor-force composition by NUTS-2 level for Europe
-lf <- get_eurostat("lfst_r_lfe2en2")
+lf <- get_eurostat('lfst_r_lfe2en2')
 
 # select data for 2016, recode to ternary sectors and calculate shares
 euro_sectors <-
