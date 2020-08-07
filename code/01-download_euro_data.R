@@ -95,19 +95,19 @@ euro_sectors <-
 
 # Save data -----------------------------------------------------
 
-write_csv(
-  euro_education,
-  path = './data/euro_education.csv'
-)
-
-write_csv(
-  euro_sectors,
-  path = './data/euro_sectors.csv'
-)
-
-save(
-  euro_geo_nuts2,
-  file = './data/euro_geo_nuts2.RData',
-  compress = 'xz',
-  version = 2
-)
+# write_csv(
+#   euro_education,
+#   path = './data/euro_education.csv'
+# )
+#
+# write_csv(
+#   euro_sectors,
+#   path = './data/euro_sectors.csv'
+# )
+#
+# save(
+#   euro_geo_nuts2,
+#   file = './data/euro_geo_nuts2.RData',
+#   compress = 'xz',
+#   version = 2
+# )

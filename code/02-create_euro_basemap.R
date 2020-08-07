@@ -4,7 +4,9 @@
 
 library(tidyverse)
 library(sf)
+library(rgeos)
 library(rnaturalearth)
+library(rnaturalearthdata)
 
 eura_sf <-
   # download geospatial data for European, Asian and African countries
@@ -28,8 +30,8 @@ euro_basemap <-
   coord_sf(expand = FALSE, datum = NA) +
   theme_void()
 
-save(
-  euro_basemap,
-  file = './data/euro_basemap.RData',
-  compress = 'xz'
-)
+# save(
+#   euro_basemap,
+#   file = './data/euro_basemap.RData',
+#   compress = 'xz'
+# )

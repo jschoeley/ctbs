@@ -519,12 +519,12 @@ plot_euro_education_key <-
   ) +
   theme_arrowlarge()
 
-ggsave(
-  filename = 'euro_education_key.pdf',
-  path = cnst$fig_path,
-  plot = plot_euro_education_key,
-  width = cnst$fig_width, height = cnst$fig_height
-)
+# ggsave(
+#   filename = 'euro_education_key.pdf',
+#   path = cnst$fig_path,
+#   plot = plot_euro_education_key,
+#   width = cnst$fig_width, height = cnst$fig_height
+# )
 
 # Figure 1B ---------------------------------------------------------------
 
@@ -562,12 +562,12 @@ plot_euro_education_map <-
   scale_fill_identity() +
   labs(title = 'B')
 
-ggsave(
-  filename = 'euro_education_map.pdf',
-  path = cnst$fig_path,
-  plot = plot_euro_education_map,
-  width = cnst$fig_width, height = cnst$fig_height
-)
+# ggsave(
+#   filename = 'euro_education_map.pdf',
+#   path = cnst$fig_path,
+#   plot = plot_euro_education_map,
+#   width = cnst$fig_width, height = cnst$fig_height
+# )
 
 # Figure 2A ---------------------------------------------------------------
 
@@ -656,12 +656,12 @@ plot_euro_sectors_map <-
     xmin = 53e5, xmax = Inf, ymin = 35e5, ymax = Inf) +
   labs(title = 'A')
 
-ggsave(
-  filename = 'euro_sectors_map.pdf',
-  path = cnst$fig_path,
-  plot = plot_euro_sectors_map,
-  width = cnst$fig_width, height = cnst$fig_height
-)
+# ggsave(
+#   filename = 'euro_sectors_map.pdf',
+#   path = cnst$fig_path,
+#   plot = plot_euro_sectors_map,
+#   width = cnst$fig_width, height = cnst$fig_height
+# )
 
 # Figure 2B ---------------------------------------------------------------
 
@@ -749,12 +749,12 @@ plot_euro_sectors_map_centered <-
     xmin = 53e5, xmax = Inf, ymin = 35e5, ymax = Inf) +
   labs(title = 'B')
 
-ggsave(
-  filename = 'euro_sectors_map_centered.pdf',
-  path = cnst$fig_path,
-  plot = plot_euro_sectors_map_centered,
-  width = cnst$fig_width, height = cnst$fig_height
-)
+# ggsave(
+#   filename = 'euro_sectors_map_centered.pdf',
+#   path = cnst$fig_path,
+#   plot = plot_euro_sectors_map_centered,
+#   width = cnst$fig_width, height = cnst$fig_height
+# )
 
 # Figure 3A ---------------------------------------------------------------
 
@@ -793,11 +793,11 @@ legend_style_a <-
   ) +
   labs(x = '% primary', y = '% secondary', z = '% ternary')
 
-ggsave(
-  filename = 'legend_stylea.pdf',
-  path = cnst$fig_path, plot = legend_style_a,
-  width = cnst$fig_width, height = cnst$fig_height
-)
+# ggsave(
+#   filename = 'legend_stylea.pdf',
+#   path = cnst$fig_path, plot = legend_style_a,
+#   width = cnst$fig_width, height = cnst$fig_height
+# )
 
 # Figure 3B ---------------------------------------------------------------
 
@@ -831,11 +831,11 @@ legend_style_b <-
   ) +
   labs(x = '% yellow', y = '% cyan', z = '% magenta')
 
-ggsave(
-  filename = 'legend_styleb.pdf',
-  path = cnst$fig_path, plot = legend_style_b,
-  width = cnst$fig_width, height = cnst$fig_height
-)
+# ggsave(
+#   filename = 'legend_styleb.pdf',
+#   path = cnst$fig_path, plot = legend_style_b,
+#   width = cnst$fig_width, height = cnst$fig_height
+# )
 
 # Figure 3C -----------------------------------------------------
 
@@ -892,11 +892,11 @@ legend_style_c <-
     z = '%pt. diff. ternary (%)'
   )
 
-ggsave(
-  filename = 'legend_stylec.pdf',
-  path = cnst$fig_path, plot = legend_style_c,
-  width = cnst$fig_width, height = cnst$fig_height
-)
+# ggsave(
+#   filename = 'legend_stylec.pdf',
+#   path = cnst$fig_path, plot = legend_style_c,
+#   width = cnst$fig_width, height = cnst$fig_height
+# )
 
 # Figure 3D -----------------------------------------------------
 
@@ -931,11 +931,11 @@ legend_style_d <-
              data = euro_sectors_colors) +
   labs(x = '% primary', y = '% secondary', z = '% ternary')
 
-ggsave(
-  filename = 'legend_styled.pdf',
-  path = cnst$fig_path, plot = legend_style_d,
-  width = cnst$fig_width, height = cnst$fig_height
-)
+# ggsave(
+#   filename = 'legend_styled.pdf',
+#   path = cnst$fig_path, plot = legend_style_d,
+#   width = cnst$fig_width, height = cnst$fig_height
+# )
 
 # Figure 3E -----------------------------------------------------
 
@@ -980,11 +980,11 @@ legend_style_e <-
   ) +
   coord_equal(clip = 'off')
 
-ggsave(
-  filename = 'legend_stylee.pdf',
-  path = cnst$fig_path, plot = legend_style_e,
-  width = cnst$fig_width, height = cnst$fig_height
-)
+# ggsave(
+#   filename = 'legend_stylee.pdf',
+#   path = cnst$fig_path, plot = legend_style_e,
+#   width = cnst$fig_width, height = cnst$fig_height
+# )
 
 # Centre of EU labor force composition --------------------------
 
