@@ -28,9 +28,6 @@ cnst <-
     fig_path = 'out/',
     fig_width = 6,
     fig_height = 6,
-    # average labor force composition in EU 2016
-    # across the three sectors
-    eu_center = c(0.04, 0.24, 0.72),
     barycenter = c(1/3, 1/3, 1/3)
   )
 
@@ -480,6 +477,10 @@ ColorKey <- function (h_, c_, l_, contrast, center) {
   return(legend)
 }
 
+# Centre of EU labor force composition --------------------------
+
+cnst$eu_center <- Centre(euro_sectors[,2:4])
+
 # Figure 1A ---------------------------------------------------------------
 
 # Ternary diagram of regional education levels in Europe
@@ -655,7 +656,7 @@ plot_euro_sectors_map <-
     ),
     xmin = 53e5, xmax = Inf, ymin = 35e5, ymax = Inf) +
   labs(title = 'A')
-
+#
 # ggsave(
 #   filename = 'euro_sectors_map.pdf',
 #   path = cnst$fig_path,
@@ -985,7 +986,3 @@ legend_style_e <-
 #   path = cnst$fig_path, plot = legend_style_e,
 #   width = cnst$fig_width, height = cnst$fig_height
 # )
-
-# Centre of EU labor force composition --------------------------
-
-Centre(euro_sectors[,2:4])
