@@ -21,6 +21,18 @@ contribution: |
  I have proposed a technique to visualize the internal variation in surfaces of highly unbalanced compositional data and implemented it in the R package "tricolore."
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  cache = FALSE,
+  dpi = 300,
+  #out.width = '100%',
+  fig.align='center'
+)
+```
+
 Ternary diagrams and color schemes
 ==================================
 
@@ -32,7 +44,9 @@ Wherever three-part compositions are available by geographical region or other p
 
 Published examples of the ternary balance scheme include maps of population compositions by political alignment, education and workforce status [@Dorling2012; @Graetz2019; @Brewer1994], geological maps of soil composition [@Metternicht2003], arctic sea ice coverage by type [@Denil2015] or land cover compositions by type of forest [@Pirzamanbein2020; @Steidinger2019]. @Schoeley2017 employed the scheme to visualize the distribution of deaths by cause among the French population on a period by age surface.
 
-![Demonstration of the ternary balance scheme showing the composition of educational attainment by region in Europe 2016. Data by Eurostat.](figure1.png)
+```{r fig.cap='Demonstration of the ternary balance scheme showing the composition of educational attainment by region in Europe 2016. Data by Eurostat.'}
+knitr::include_graphics('figure1.pdf')
+```
 
 The challenge of unbalanced compositions
 ========================================
@@ -43,7 +57,9 @@ A remedy for analyzing data that shows little variation in relation to some refe
 
 The *centered ternary balance scheme* emerges from an application of a regular ternary color-coding to transformed (centered) compositional data. In the following, I will explain its construction.
 
-![Demonstration of the centered ternary balance scheme in comparison with the non-centered scheme showing the workforce composition by region in Europe 2016. Data by Eurostat.](figure2.png) 
+```{r fig.cap='Demonstration of the centered ternary balance scheme in comparison with the non-centered scheme showing the workforce composition by region in Europe 2016. Data by Eurostat.'}
+knitr::include_graphics('figure2.pdf')
+```
 
 Perturbation and centering of compositional data
 ================================================
@@ -61,7 +77,9 @@ In 2016 the average European region had 4% of the workforce situated in the prim
 
 The resulting colors show for each composition the direction and magnitude of deviation from the compositional mean. The hue of the color encodes which components of a three-part composition are greater than the average, whereas lightness and saturation indicate the distance of a composition from the average, which itself is colored grey.
 
-![Different representations of the color key for the (centered) ternary balance scheme showing the workforce composition by region in Europe 2016. Data by Eurostat.](figure3.png)
+```{r fig.cap='Different representations of the color key for the (centered) ternary balance scheme showing the workforce composition by region in Europe 2016. Data by Eurostat.'}
+knitr::include_graphics('figure3.pdf')
+```
 
 There are multiple options for drawing an informative color key. Simply plotting the centered compositions in a ternary diagram with a color-coded background as in Figure 3B -- while correct -- is not very intuitive as the transformed compositions can not be easily interpreted^[The same situation arises when a logarithmic scale is labeled with the logged values as opposed to the values on the original scale.]. A better option is to plot the centered data in a ternary diagram with scale labels indicating the original proportions (see Figure 3C). Because the centering operation skews the grid-lines in a ternary diagram, centered grid-lines have to be plotted [@VonEynatten2002]. This is achieved by perturbing the ternary coordinates of the grid by the inverse of the center $\mathbf{y}$. As the colors encode deviations from the center, the grid-lines can accordingly be labeled with the percent-point difference from it. A third option is to plot the uncentered data in the standard ternary diagram and perturb the background color surface instead, shifting its grey-point from the barycenter of the triangle to the location of $\mathbf{y}$ (see Figure 3D).
 
