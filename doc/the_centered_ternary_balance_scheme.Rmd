@@ -29,11 +29,11 @@ abstract:
 blurb: |
   This article is part of the Special Collection on "Data Visualization,"
   organized by Guest Editors Tim Riffe, Sebastian Klüsener, and Nikola Sander.
-drstartpage: '397'
-drarticle: '17'
+drstartpage: '443'
+drarticle: '19'
 drvolume: '44'
-drdatepub: '22 February 2021'
-drcat: 'Research Article'
+drdatepub: '9 March 2021'
+drcat: 'Research Material'
 ---
 
 ```{r setup, include=FALSE}
