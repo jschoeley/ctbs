@@ -2,6 +2,8 @@ The centered ternary balance scheme: A technique to visualize surfaces of unbala
 ================
 Jonas Schöley
 
+Read the paper: [10.4054/DemRes.2021.44.19](https://dx.doi.org/10.4054/DemRes.2021.44.19)
+
 ![](teaser.png)
 
 BACKGROUND
